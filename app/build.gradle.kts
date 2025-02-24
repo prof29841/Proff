@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+
+    alias(libs.plugins.serialization)
 }
 
 android {
@@ -40,6 +42,32 @@ android {
 }
 
 dependencies {
+    //navigation
+    implementation(libs.navigation)
+
+    //viewModel
+    implementation(libs.view.model)
+
+    //supabase
+    implementation(libs.supabase.auth)
+    implementation(libs.supabase.storage)
+    implementation(libs.supabase.postgrest)
+    implementation(libs.supabase.serialization)
+
+    //ktor
+    implementation(libs.ktor.core)
+    implementation(libs.ktor.cio)
+
+    //koin
+    implementation(libs.io.koin.compose)
+    implementation(libs.io.koin.core)
+    implementation(libs.io.koin.android)
+
+    //coil
+    implementation(libs.coil)
+
+    //yCharts
+    implementation(libs.ycharts)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
