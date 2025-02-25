@@ -1,6 +1,7 @@
 package com.example.proff.feature_app.presentation.ui.theme
 
 import androidx.compose.material3.Typography
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -61,6 +62,20 @@ val montserrat70024Bold_1D1617 = TextStyle(
     color = _1D1617,
     textAlign = TextAlign.Center
 )
+val montserrat70020Bold_1D1617 = TextStyle(
+    fontFamily = fontMontserratBold,
+    fontWeight = FontWeight(700),
+    fontSize = 20.sp,
+    color = _1D1617,
+    textAlign = TextAlign.Center
+)
+val montserrat70016BoldWhite = TextStyle(
+    fontFamily = fontMontserratBold,
+    fontWeight = FontWeight(700),
+    fontSize = 16.sp,
+    color = Color.White,
+    textAlign = TextAlign.Center
+)
 val montserrat40018_CFCFCF = TextStyle(
     fontFamily = fontMontserratBold,
     fontWeight = FontWeight(400),
@@ -73,5 +88,26 @@ val montserrat40014_B6B4C2 = TextStyle(
     fontWeight = FontWeight(400),
     fontSize = 14.sp,
     color = _B6B4C2,
+    textAlign = TextAlign.Center
+)
+val montserrat40016_1D1617 = TextStyle(
+    fontFamily = fontMontserratBold,
+    fontWeight = FontWeight(400),
+    fontSize = 16.sp,
+    color = _1D1617,
+    textAlign = TextAlign.Center
+)
+val montserrat40012_ADA4A5 = TextStyle(
+    fontFamily = fontMontserratBold,
+    fontWeight = FontWeight(400),
+    fontSize = 12.sp,
+    color = _ADA4A5,
+    textAlign = TextAlign.Center
+)
+val montserrat50012_ADA4A5 = TextStyle(
+    fontFamily = fontMontserratBold,
+    fontWeight = FontWeight(500),
+    fontSize = 12.sp,
+    color = _ADA4A5,
     textAlign = TextAlign.Center
 )

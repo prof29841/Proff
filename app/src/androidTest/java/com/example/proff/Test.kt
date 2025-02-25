@@ -7,6 +7,10 @@ import androidx.compose.ui.test.onFirst
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performTextInput
 import androidx.navigation.compose.rememberNavController
+import com.example.proff.feature_app.domain.usecase.Auth.SignInUseCase
+import com.example.proff.feature_app.domain.usecase.Auth.SignInWithGoogleUseCase
+import com.example.proff.feature_app.presentation.SignIn.SignInScreen
+import com.example.proff.feature_app.presentation.SignIn.SignInViewModel
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -17,6 +21,7 @@ import org.junit.runners.JUnit4
 class Test {
 
     private lateinit var signInUseCase: SignInUseCase
+    private lateinit var signInWithGoogleUseCase: SignInWithGoogleUseCase
 
     @get:Rule
     val rule = createAndroidComposeRule<ComponentActivity>()
@@ -26,6 +31,7 @@ class Test {
         val repository = TestRepositoryImpl()
 
         signInUseCase = SignInUseCase(repository)
+        signInWithGoogleUseCase = SignInWithGoogleUseCase(repository)
     }
 
     @Test
@@ -33,7 +39,7 @@ class Test {
         rule.setContent {
             SignInScreen(
                 rememberNavController(),
-                SignInViewModel(signInUseCase)
+                SignInViewModel(signInUseCase, signInWithGoogleUseCase)
             )
         }
 
@@ -45,7 +51,7 @@ class Test {
         rule.setContent {
             SignInScreen(
                 rememberNavController(),
-                SignInViewModel(signInUseCase)
+                SignInViewModel(signInUseCase, signInWithGoogleUseCase)
             )
         }
 
@@ -58,7 +64,7 @@ class Test {
         rule.setContent {
             SignInScreen(
                 rememberNavController(),
-                SignInViewModel(signInUseCase)
+                SignInViewModel(signInUseCase, signInWithGoogleUseCase)
             )
         }
 
@@ -70,7 +76,7 @@ class Test {
         rule.setContent {
             SignInScreen(
                 rememberNavController(),
-                SignInViewModel(signInUseCase)
+                SignInViewModel(signInUseCase, signInWithGoogleUseCase)
             )
         }
 
@@ -84,7 +90,7 @@ class Test {
         rule.setContent {
             SignInScreen(
                 rememberNavController(),
-                SignInViewModel(signInUseCase)
+                SignInViewModel(signInUseCase, signInWithGoogleUseCase)
             )
         }
 
@@ -97,7 +103,7 @@ class Test {
         rule.setContent {
             SignInScreen(
                 rememberNavController(),
-                SignInViewModel(signInUseCase)
+                SignInViewModel(signInUseCase, signInWithGoogleUseCase)
             )
         }
 

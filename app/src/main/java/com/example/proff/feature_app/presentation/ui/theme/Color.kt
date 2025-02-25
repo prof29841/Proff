@@ -18,3 +18,5 @@ val _226F8F = Color(0xFF226F8F)
 val _9CE9EE = Color(0xFF9CE9EE)
 
 val _81C1CC = Color(0xFF81C1CC)
+val _F7F8F8 = Color(0xFFF7F8F8)
+val _ADA4A5 = Color(0xFFADA4A5)
