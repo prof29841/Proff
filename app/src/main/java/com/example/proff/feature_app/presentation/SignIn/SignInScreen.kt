@@ -20,13 +20,20 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.proff.R
 import com.example.proff.Route
+import com.example.proff.feature_app.data.network.Supabase.client
 import com.example.proff.feature_app.presentation.common.CustomAlertDialog
 import com.example.proff.feature_app.presentation.common.CustomBlueButton
+import com.example.proff.feature_app.presentation.common.CustomGoogleButton
+import com.example.proff.feature_app.presentation.common.CustomHorizontalDivider
 import com.example.proff.feature_app.presentation.common.CustomIndicator
+import com.example.proff.feature_app.presentation.common.CustomTextButton
 import com.example.proff.feature_app.presentation.common.CustomTextField
 import com.example.proff.feature_app.presentation.ui.theme.montserrat40016_1D1617
 import com.example.proff.feature_app.presentation.ui.theme.montserrat50012_ADA4A5
 import com.example.proff.feature_app.presentation.ui.theme.montserrat70020Bold_1D1617
+import io.github.jan.supabase.compose.auth.composable.NativeSignInResult
+import io.github.jan.supabase.compose.auth.composable.rememberSignInWithGoogle
+import io.github.jan.supabase.compose.auth.composeAuth
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
@@ -36,40 +43,52 @@ fun SignInScreen(
 ) {
 
     val state = viewModel.state.value
+    val authState = client.composeAuth.rememberSignInWithGoogle({
+        when (it){
+            NativeSignInResult.ClosedByUser -> {}
+            is NativeSignInResult.Error -> {
+                viewModel.onEvent(SignInEvent.SetException(it.message))
+            }
+            is NativeSignInResult.NetworkError -> {
+                viewModel.onEvent(SignInEvent.SetException(it.message))
+            }
+            NativeSignInResult.Success -> {
+                viewModel.onEvent(SignInEvent.SignInWithGoogle)
+            }
+        }
+    })
     val singInList = listOf(
         listOf(
             ImageVector.vectorResource(R.drawable.message_icon),
             state.email,
-            {it: String -> viewModel.onEvent(SignInEvent.EmailEnter(it))} as (String) -> Unit,
+            { it: String -> viewModel.onEvent(SignInEvent.EmailEnter(it)) } as (String) -> Unit,
             state.passwordState,
-            {it: Boolean -> viewModel.onEvent(SignInEvent.PasswordStateChange(it))} as (Boolean) -> Unit,
+            { it: Boolean -> viewModel.onEvent(SignInEvent.PasswordStateChange(it)) } as (Boolean) -> Unit,
             "Почта",
             false
         ),
         listOf(
             ImageVector.vectorResource(R.drawable.lock_icon),
             state.password,
-            {it: String -> viewModel.onEvent(SignInEvent.PasswordEnter(it))} as (String) -> Unit,
+            { it: String -> viewModel.onEvent(SignInEvent.PasswordEnter(it)) } as (String) -> Unit,
             state.passwordState,
-            {it: Boolean -> viewModel.onEvent(SignInEvent.PasswordStateChange(it))} as (Boolean) -> Unit,
+            { it: Boolean -> viewModel.onEvent(SignInEvent.PasswordStateChange(it)) } as (Boolean) -> Unit,
             "Пароль",
             true
         )
     )
 
     LaunchedEffect(key1 = !state.isComplete) {
-        if (state.isComplete){
-            navController.navigate(Route.HomeScreen.route){
-                popUpTo(Route.SignInScreen.route){
+        if (state.isComplete) {
+            navController.navigate(Route.HomeScreen.route) {
+                popUpTo(Route.SignInScreen.route) {
                     inclusive = true
                 }
             }
         }
     }
 
-    CustomIndicator(state.showIndicator)
-
-    if (state.exception.isNotEmpty()){
+    if (state.exception.isNotEmpty()) {
         CustomAlertDialog(state.exception) {
             viewModel.onEvent(SignInEvent.ResetException)
         }
@@ -79,7 +98,12 @@ fun SignInScreen(
         modifier = Modifier
             .fillMaxSize()
             .background(Color.White)
-            .padding(start = 30.dp, end = 30.dp, top = (LocalConfiguration.current.screenHeightDp / 20).dp),
+            .padding(
+                start = 30.dp,
+                end = 30.dp,
+                top = (LocalConfiguration.current.screenHeightDp / 20).dp,
+                bottom = (LocalConfiguration.current.screenHeightDp / 20).dp
+            ),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
@@ -93,12 +117,13 @@ fun SignInScreen(
         )
         Spacer(Modifier.height(30.dp))
 
-        singInList.forEach{data ->
+        singInList.forEach { data ->
             CustomTextField(
                 leadingIcon = data[0] as ImageVector,
                 value = data[1] as String,
                 onValueChange = data[2] as (String) -> Unit,
                 passwordState = data[3] as Boolean,
+                isPassword = data[6] as Boolean,
                 onPasswordStateChange = data[4] as (Boolean) -> Unit,
                 title = data[5] as String,
                 tag = data[5] as String,
@@ -124,5 +149,24 @@ fun SignInScreen(
         ) {
             viewModel.onEvent(SignInEvent.SignIn)
         }
+        Spacer(Modifier.height(20.dp))
+        CustomHorizontalDivider()
+        Spacer(Modifier.height(25.dp))
+        CustomGoogleButton { authState.startFlow() }
+        Spacer(Modifier.height(25.dp))
+        CustomTextButton(
+            firstText = "Нет аккаунта? ",
+            secondText = "Зарегистрироваться",
+            modifier = Modifier
+                .fillMaxWidth(),
+            enabled = !state.showIndicator
+        ) {
+            navController.navigate(Route.SignUpScreen.route){
+                popUpTo(Route.SignInScreen.route){
+                    inclusive = true
+                }
+            }
+        }
     }
+    CustomIndicator(state.showIndicator)
 }

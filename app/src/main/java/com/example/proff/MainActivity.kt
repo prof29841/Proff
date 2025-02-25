@@ -5,11 +5,20 @@ import android.view.View
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.animation.core.LinearOutSlowInEasing
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.shrinkHorizontally
+import androidx.compose.animation.slideInHorizontally
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.proff.feature_app.presentation.ChoosingGoal.ChoosingGoalScreen
+import com.example.proff.feature_app.presentation.CreatingProfile.CreatingProfileScreen
 import com.example.proff.feature_app.presentation.OnBoard.OnBoardScreen
+import com.example.proff.feature_app.presentation.SignIn.SignInScreen
+import com.example.proff.feature_app.presentation.SignUp.SignUpScreen
 import com.example.proff.feature_app.presentation.Splash.SplashScreen
+import com.example.proff.feature_app.presentation.SuccessRegistration.SuccessRegistrationScreen
 import com.example.proff.feature_app.presentation.ui.theme.ProffTheme
 
 class MainActivity : ComponentActivity() {
@@ -22,7 +31,15 @@ class MainActivity : ComponentActivity() {
         setContent {
             val navController = rememberNavController()
             ProffTheme {
-                NavHost(navController, startDestination = Route.SplashScreen.route){
+                NavHost(
+                    navController, startDestination = Route.SplashScreen.route,
+                    enterTransition = {
+                        slideInHorizontally(tween(500, easing = LinearOutSlowInEasing))
+                    },
+                    exitTransition = {
+                        shrinkHorizontally(tween(500, easing = LinearOutSlowInEasing))
+                    }
+                ){
 
                     composable(Route.SplashScreen.route){
                         SplashScreen(navController)
@@ -33,6 +50,22 @@ class MainActivity : ComponentActivity() {
 
 
                     composable(Route.SignInScreen.route){
+                        SignInScreen(navController)
+                    }
+                    composable(Route.SignUpScreen.route){
+                        SignUpScreen(navController)
+                    }
+                    composable(Route.CreatingProfileScreen.route){
+                        CreatingProfileScreen(navController)
+                    }
+                    composable(Route.ChoosingGoalScreen.route){
+                        ChoosingGoalScreen(navController)
+                    }
+                    composable(Route.SuccessRegistrationScreen.route){
+                        SuccessRegistrationScreen(navController)
+                    }
+
+                    composable(Route.HomeScreen.route){
 
                     }
                 }
@@ -40,4 +73,3 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-//test

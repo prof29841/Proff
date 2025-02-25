@@ -1,16 +1,19 @@
 package com.example.proff.feature_app.data.repository
 
 import com.example.proff.feature_app.data.network.Supabase.client
+import com.example.proff.feature_app.domain.model.LastActivity
+import com.example.proff.feature_app.domain.model.Notifications
 import com.example.proff.feature_app.domain.model.UserData
 import com.example.proff.feature_app.domain.repository.AuthRepository
 import io.github.jan.supabase.auth.auth
 import io.github.jan.supabase.auth.providers.builtin.Email
 import io.github.jan.supabase.postgrest.postgrest
+import kotlin.random.Random
 
 
 /**
  * Класс для авторизации и регистрации.
- * @authorАндреев Арсений
+ * @author Андреев Арсений 25.02.2025 12:11
  */
 class AuthRepositoryImpl : AuthRepository {
 
@@ -52,6 +55,7 @@ class AuthRepositoryImpl : AuthRepository {
             "fio" to userData.fio,
             "phone" to userData.phone
         ))
+        addSomeUserData()
     }
 
     //внесение допДанных
@@ -82,6 +86,48 @@ class AuthRepositoryImpl : AuthRepository {
     private suspend fun getUserID() : String{
         client.auth.awaitInitialization()
         return client.auth.currentUserOrNull()?.id ?: ""
+    }
+
+    private suspend fun addSomeUserData() {
+
+        val userID = getUserID()
+
+        val heartRate = getRandomHeartRate()
+        client.postgrest["HeartRate"].insert(mapOf(
+            "userID" to userID,
+            "value" to heartRate
+        ))
+
+        val lastActivity1 = LastActivity(userID, "Вода", "4 литра")
+        val lastActivity2 = LastActivity(userID, "Сон", "8 ч. 20 мин.")
+
+        client.postgrest["LastActivity"].insert(listOf(lastActivity1, lastActivity2))
+
+        client.postgrest["Notifications"].insert(mapOf(
+            "userID" to userID,
+            "title" to "TITLE 1",
+            "image" to "https://nnctezenkkdwflrmazcg.supabase.co/storage/v1/object/public/avatars//default_notification.png"
+        ))
+        client.postgrest["Notifications"].insert(mapOf(
+            "userID" to userID,
+            "title" to "TITLE 2",
+            "image" to "https://nnctezenkkdwflrmazcg.supabase.co/storage/v1/object/public/avatars//default_notification.png"
+        ))
+        client.postgrest["Notifications"].insert(mapOf(
+            "userID" to userID,
+            "title" to "TITLE 3",
+            "image" to "https://nnctezenkkdwflrmazcg.supabase.co/storage/v1/object/public/avatars//default_notification.png"
+        ))
+    }
+
+    private fun getRandomHeartRate(): String {
+        var rate = ""
+
+        for (i in 0..10){
+            rate += Random.nextInt(1, 6)
+        }
+
+        return rate
     }
 
 }

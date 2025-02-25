@@ -90,6 +90,20 @@ val montserrat40014_B6B4C2 = TextStyle(
     color = _B6B4C2,
     textAlign = TextAlign.Center
 )
+val montserrat40014_1D1617 = TextStyle(
+    fontFamily = fontMontserratBold,
+    fontWeight = FontWeight(400),
+    fontSize = 14.sp,
+    color = _1D1617,
+    textAlign = TextAlign.Center
+)
+val montserrat50014_9CE9EE = TextStyle(
+    fontFamily = fontMontserratBold,
+    fontWeight = FontWeight(500),
+    fontSize = 14.sp,
+    color = _9CE9EE,
+    textAlign = TextAlign.Center
+)
 val montserrat40016_1D1617 = TextStyle(
     fontFamily = fontMontserratBold,
     fontWeight = FontWeight(400),
@@ -104,10 +118,59 @@ val montserrat40012_ADA4A5 = TextStyle(
     color = _ADA4A5,
     textAlign = TextAlign.Center
 )
+val montserrat40012_7B6F72 = TextStyle(
+    fontFamily = fontMontserratBold,
+    fontWeight = FontWeight(400),
+    fontSize = 12.sp,
+    color = _7B6F72,
+    textAlign = TextAlign.Center
+)
+val montserrat40012_1D1617 = TextStyle(
+    fontFamily = fontMontserratBold,
+    fontWeight = FontWeight(400),
+    fontSize = 12.sp,
+    color = _1D1617,
+    textAlign = TextAlign.Center
+)
+val montserrat40010White = TextStyle(
+    fontFamily = fontMontserratBold,
+    fontWeight = FontWeight(400),
+    fontSize = 10.sp,
+    color = Color.White,
+    textAlign = TextAlign.Center
+)
+val montserrat40010_ADA4A5 = TextStyle(
+    fontFamily = fontMontserratBold,
+    fontWeight = FontWeight(400),
+    fontSize = 10.sp,
+    color = _ADA4A5,
+    textAlign = TextAlign.Center
+)
+val montserrat40012White = TextStyle(
+    fontFamily = fontMontserratBold,
+    fontWeight = FontWeight(400),
+    fontSize = 12.sp,
+    color = Color.White,
+    textAlign = TextAlign.Center
+)
 val montserrat50012_ADA4A5 = TextStyle(
     fontFamily = fontMontserratBold,
     fontWeight = FontWeight(500),
     fontSize = 12.sp,
     color = _ADA4A5,
+    textAlign = TextAlign.Center
+)
+val montserrat50012White = TextStyle(
+    fontFamily = fontMontserratBold,
+    fontWeight = FontWeight(500),
+    fontSize = 12.sp,
+    color = Color.White,
+    textAlign = TextAlign.Center
+)
+val montserrat60014White = TextStyle(
+    fontFamily = fontMontserratBold,
+    fontWeight = FontWeight(600),
+    fontSize = 14.sp,
+    color = Color.White,
     textAlign = TextAlign.Center
 )

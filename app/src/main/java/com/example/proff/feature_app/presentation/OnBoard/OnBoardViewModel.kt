@@ -29,6 +29,7 @@ class OnBoardViewModel(
             is OnBoardEvent.NextPage -> {
                 if (_state.value.list.size <= event.value){
                     setQueueUseCase(-1)
+                    _state.value = state.value.copy(isComplete = true)
                 }else{
                     _state.value = state.value.copy(currentPage = event.value)
                 }

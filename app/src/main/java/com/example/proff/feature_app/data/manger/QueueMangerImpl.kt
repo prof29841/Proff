@@ -4,6 +4,10 @@ import android.content.Context
 import android.content.Context.MODE_PRIVATE
 import com.example.proff.feature_app.domain.manger.QueueManger
 
+/**
+ * Класс для очереди
+ * @author Андреев Арсений 25.02.2025 10:15
+ */
 class QueueMangerImpl(
     private val context: Context
 ) : QueueManger {

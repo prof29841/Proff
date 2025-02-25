@@ -1,6 +1,7 @@
 package com.example.proff.feature_app.presentation.common
 
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
@@ -13,6 +14,7 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.unit.dp
 import com.example.proff.R
 import com.example.proff.feature_app.presentation.ui.theme._F7F8F8
 import com.example.proff.feature_app.presentation.ui.theme.montserrat40012_ADA4A5
@@ -28,7 +30,7 @@ fun CustomTextField(
     enabled: Boolean = true,
     isPassword: Boolean = false,
     tag: String = "tag",
-    trailingIcon: ImageVector = ImageVector.vectorResource(R.drawable.eye_icon),
+    trailingIcon: ImageVector? = ImageVector.vectorResource(R.drawable.eye_icon),
     modifier: Modifier = Modifier
 ) {
     TextField(
@@ -46,13 +48,15 @@ fun CustomTextField(
         },
         singleLine = true,
         trailingIcon = {
-            Icon(
-                imageVector = trailingIcon,
-                contentDescription = null,
-                tint = Color.Unspecified,
-                modifier = Modifier
-                    .clickable { onPasswordStateChange(!passwordState) }
-            )
+            if (trailingIcon != null && isPassword){
+                Icon(
+                    imageVector = trailingIcon,
+                    contentDescription = null,
+                    tint = Color.Unspecified,
+                    modifier = Modifier
+                        .clickable { onPasswordStateChange(!passwordState) }
+                )
+            }
         },
         enabled = enabled,
         colors = TextFieldDefaults.colors(
@@ -63,6 +67,7 @@ fun CustomTextField(
             disabledContainerColor = _F7F8F8,
             disabledIndicatorColor = Color.Transparent
         ),
+        shape = RoundedCornerShape(100.dp),
         label = {
             Text(
                 text = title,
