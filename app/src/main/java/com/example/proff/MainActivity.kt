@@ -66,7 +66,6 @@ class MainActivity : ComponentActivity() {
                     }
 
                     composable(Route.HomeScreen.route){
-
                     }
                 }
             }
