@@ -86,6 +86,9 @@ class MainActivity : ComponentActivity() {
                     composable(Route.WorkoutTrackerScreen.route){
                         WorkoutTrackerScreen(navController)
                     }
+                    composable(Route.NotificationScreen.route){
+                        NotificationScreen(navController)
+                    }
 
 
                     composable(Route.CategoryBreakfastScreen.route){
@@ -93,7 +96,7 @@ class MainActivity : ComponentActivity() {
                     }
 
 
-                    composable(Route.SplashScreen.route){
+                    composable(Route.SleepTrackerScreen.route){
 
                     }
                 }

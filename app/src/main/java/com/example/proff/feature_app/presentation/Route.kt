@@ -21,4 +21,7 @@ sealed class Route(val route: String) {
 
 
     data object SleepTrackerScreen : Route("SleepTrackerScreen")
+
+
+    data object ProgressPhotoScreen : Route("ProgressPhotoScreen")
 }

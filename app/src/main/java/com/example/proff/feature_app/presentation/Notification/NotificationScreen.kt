@@ -40,7 +40,7 @@ fun NotificationScreen(
         modifier = Modifier
             .fillMaxSize()
             .background(Color.White)
-            .padding(horizontal = 30.dp, vertical = (LocalConfiguration.current.screenHeightDp / 20).dp),
+            .padding(start = 30.dp, end = 30.dp, bottom = (LocalConfiguration.current.screenHeightDp / 20).dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         CustomTopAppBar(

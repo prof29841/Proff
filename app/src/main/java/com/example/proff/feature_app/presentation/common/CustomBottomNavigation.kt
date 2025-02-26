@@ -35,7 +35,7 @@ fun CustomBottomNavigation(
     modifier: Modifier = Modifier
 ) {
     val iconList = listOf(
-        ImageVector.vectorResource(R.drawable.home_active_icon),
+        ImageVector.vectorResource(R.drawable.home_icon),
         ImageVector.vectorResource(R.drawable.activity_icon),
         Icons.Default.Search,
         ImageVector.vectorResource(R.drawable.camera_icon),
@@ -58,15 +58,39 @@ fun CustomBottomNavigation(
                             navController.navigate(Route.HomeScreen.route)
                         }else if (repeat == 1 && route.route != Route.WorkoutTrackerScreen.route){
                             navController.navigate(Route.WorkoutTrackerScreen.route)
+                        }else if (repeat == 4 && route.route != Route.ProfileScreen.route){
+                            navController.navigate(Route.ProfileScreen.route)
+                        }else if (repeat == 3 && route.route != Route.ProgressPhotoScreen.route){
+                            navController.navigate(Route.ProgressPhotoScreen.route)
                         }
                     },
                     icon = {
                         if (repeat != 2){
-                            Icon(
-                                imageVector = iconList[repeat],
-                                contentDescription = null,
-                                tint = Color.Unspecified
-                            )
+                            if (route.route == Route.HomeScreen.route && repeat == 0){
+                                Icon(
+                                    imageVector = ImageVector.vectorResource(R.drawable.home_active_icon),
+                                    contentDescription = null,
+                                    tint = Color.Unspecified,
+                                    modifier = Modifier
+                                        .padding(20.dp)
+                                )
+                            }else if (route.route == Route.ProfileScreen.route && repeat == 4) {
+                                Icon(
+                                    imageVector = ImageVector.vectorResource(R.drawable.profile_active),
+                                    contentDescription = null,
+                                    tint = Color.Unspecified,
+                                    modifier = Modifier
+                                        .padding(20.dp)
+                                )
+                            }else{
+                                Icon(
+                                    imageVector = iconList[repeat],
+                                    contentDescription = null,
+                                    tint = Color.Unspecified,
+                                    modifier = Modifier
+                                        .padding(20.dp)
+                                )
+                            }
                         }else{
                             Box(
                                 Modifier

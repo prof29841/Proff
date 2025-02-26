@@ -13,7 +13,7 @@ import java.time.LocalDate
 
 /**
  * Класс для работы с тренировками
- * @author Андреев Арсений
+ * @author Андреев Арсений 26.02.2025 11:01
  */
 class WorkoutRepositoryImpl : WorkoutRepository{
 
