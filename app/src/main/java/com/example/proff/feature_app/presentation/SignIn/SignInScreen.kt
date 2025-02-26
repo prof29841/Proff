@@ -19,7 +19,7 @@ import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.proff.R
-import com.example.proff.Route
+import com.example.proff.feature_app.presentation.Route
 import com.example.proff.feature_app.data.network.Supabase.client
 import com.example.proff.feature_app.presentation.common.CustomAlertDialog
 import com.example.proff.feature_app.presentation.common.CustomBlueButton

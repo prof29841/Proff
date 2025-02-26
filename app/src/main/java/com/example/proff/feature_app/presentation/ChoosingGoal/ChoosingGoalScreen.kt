@@ -34,7 +34,7 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.proff.Route
+import com.example.proff.feature_app.presentation.Route
 import com.example.proff.feature_app.presentation.common.CustomAlertDialog
 import com.example.proff.feature_app.presentation.common.CustomBlueButton
 import com.example.proff.feature_app.presentation.common.CustomIndicator
