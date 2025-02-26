@@ -33,6 +33,7 @@ fun CustomBlueButton(
     isNextButton: Boolean = false,
     isSignInButton: Boolean = false,
     tag: String = "btn",
+    buttonColor: Color? = null,
     modifier: Modifier = Modifier,
     onClick: () -> Unit
 ) {
@@ -41,7 +42,13 @@ fun CustomBlueButton(
         onClick = onClick,
         modifier = modifier
             .clip(RoundedCornerShape(99.dp))
-            .background(Brush.linearGradient(listOf(_226F8F, _9CE9EE)), RoundedCornerShape(99.dp))
+            .background(
+                brush = if (buttonColor != null) {
+                    Brush.linearGradient(listOf(buttonColor, buttonColor))
+                } else {
+                    Brush.linearGradient(listOf(_226F8F, _9CE9EE))
+                }, RoundedCornerShape(99.dp)
+            )
             .testTag(tag),
         enabled = enabled,
         shape = RoundedCornerShape(99.dp),
@@ -50,7 +57,7 @@ fun CustomBlueButton(
         Row(
             verticalAlignment = Alignment.CenterVertically
         ) {
-            if (isSignInButton){
+            if (isSignInButton) {
                 Icon(
                     imageVector = ImageVector.vectorResource(R.drawable.signin_icon),
                     contentDescription = null,
@@ -62,7 +69,7 @@ fun CustomBlueButton(
                 text = text,
                 style = montserrat70016BoldWhite
             )
-            if (isNextButton){
+            if (isNextButton) {
                 Spacer(Modifier.width(5.dp))
                 Icon(
                     imageVector = Icons.AutoMirrored.Default.KeyboardArrowRight,

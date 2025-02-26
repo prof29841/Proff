@@ -7,7 +7,7 @@ class GetAllWorkoutDetailsUseCase(
     private val workoutRepository: WorkoutRepository
 ) {
 
-    suspend operator fun invoke(id: Int) : List<AllWorkoutDetails>{
+    suspend operator fun invoke(id: Int) : AllWorkoutDetails{
         return workoutRepository.getAllWorkoutDetails(id)
     }
 }

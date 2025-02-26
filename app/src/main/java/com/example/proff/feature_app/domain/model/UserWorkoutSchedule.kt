@@ -7,5 +7,6 @@ data class UserWorkoutSchedule(
     val userID: String,
     val date: String,
     val title: String,
+    val time: String,
     val id: Int = 0,
 )

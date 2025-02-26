@@ -1,6 +1,8 @@
 package com.example.proff.di
 
 import com.example.proff.feature_app.presentation.ActivityTracker.ActivityTrackerViewModel
+import com.example.proff.feature_app.presentation.AddWorkoutSchedule.AddWorkoutScheduleViewModel
+import com.example.proff.feature_app.presentation.CategoryBreakfast.CategoryBreakfastViewModel
 import com.example.proff.feature_app.presentation.ChoosingGoal.ChoosingGoalViewModel
 import com.example.proff.feature_app.presentation.CreatingProfile.CreatingProfileViewModel
 import com.example.proff.feature_app.presentation.Home.HomeViewModel
@@ -10,6 +12,9 @@ import com.example.proff.feature_app.presentation.Profile.ProfileViewModel
 import com.example.proff.feature_app.presentation.SignIn.SignInViewModel
 import com.example.proff.feature_app.presentation.SignUp.SignUpViewModel
 import com.example.proff.feature_app.presentation.SuccessRegistration.SuccessRegistrationViewModel
+import com.example.proff.feature_app.presentation.WorkoutDetails1.WorkoutDetails1ViewModel
+import com.example.proff.feature_app.presentation.WorkoutDetails2.WorkoutDetails2ViewModel
+import com.example.proff.feature_app.presentation.WorkoutSchedule.WorkoutScheduleViewModel
 import com.example.proff.feature_app.presentation.WorkoutTracker.WorkoutTrackerViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -51,5 +56,20 @@ val moduleViewModel = module {
     }
     viewModel<WorkoutTrackerViewModel> {
         WorkoutTrackerViewModel(get(), get(), get())
+    }
+    viewModel<WorkoutDetails1ViewModel> {
+        WorkoutDetails1ViewModel(get())
+    }
+    viewModel<WorkoutDetails2ViewModel> {
+        WorkoutDetails2ViewModel(get())
+    }
+    viewModel<WorkoutScheduleViewModel> {
+        WorkoutScheduleViewModel(get())
+    }
+    viewModel<AddWorkoutScheduleViewModel> {
+        AddWorkoutScheduleViewModel(get())
+    }
+    viewModel<CategoryBreakfastViewModel> {
+        CategoryBreakfastViewModel(get())
     }
 }
