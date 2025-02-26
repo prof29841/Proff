@@ -35,10 +35,10 @@ class WorkoutRepositoryImpl : WorkoutRepository{
         }.decodeList<SomeWorkoutDetails>()
     }
 
-    override suspend fun getAllWorkoutDetails(id: Int): List<AllWorkoutDetails> {
+    override suspend fun getAllWorkoutDetails(id: Int): AllWorkoutDetails {
         return client.postgrest["AllWorkoutsDetails1"].select {
-            filter { eq("id", id) }
-        }.decodeList<AllWorkoutDetails>()
+            filter { eq("workoutID", id) }
+        }.decodeSingle<AllWorkoutDetails>()
     }
 
     override suspend fun setWorkoutSchedule(title: String, time: String) {

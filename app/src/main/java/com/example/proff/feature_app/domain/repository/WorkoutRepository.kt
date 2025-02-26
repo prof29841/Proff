@@ -12,7 +12,7 @@ interface WorkoutRepository {
     suspend fun getAllWorkouts() : List<AllWorkoutsData>
 
     suspend fun getSomeWorkoutDetails(id: Int) : List<SomeWorkoutDetails>
-    suspend fun getAllWorkoutDetails(id: Int) : List<AllWorkoutDetails>
+    suspend fun getAllWorkoutDetails(id: Int) : AllWorkoutDetails
 
     suspend fun setWorkoutSchedule(title: String, time: String = "")
     suspend fun getWorkoutSchedule() : List<UserWorkoutSchedule>

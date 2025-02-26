@@ -1,5 +1,8 @@
 package com.example.proff.feature_app.presentation
 
+import com.example.proff.feature_app.domain.model.AllWorkoutDetails
+import com.example.proff.feature_app.domain.model.AllWorkoutsData
+
 sealed class Route(val route: String) {
 
     data object SplashScreen : Route("SplashScreen")
@@ -18,6 +21,15 @@ sealed class Route(val route: String) {
     data object WorkoutTrackerScreen : Route("WorkoutTracker")
 
     data object CategoryBreakfastScreen : Route("CategoryBreakfastScreen")
+    data object WorkoutScheduleScreen : Route("WorkoutScheduleScreen")
+    data object WorkoutDetails1Screen : Route("WorkoutDetails1Screen"){
+        var workout = AllWorkoutsData(0, "","","","")
+    }
+    data object WorkoutDetails2Screen : Route("WorkoutDetails2Screen"){
+        var workout = AllWorkoutDetails(0, 0, "","","")
+    }
+    data object CongratulationsPageScreen : Route("CongratulationsPageScreen")
+    data object AddWorkoutScheduleScreen : Route("AddWorkoutScheduleScreen")
 
 
     data object SleepTrackerScreen : Route("SleepTrackerScreen")

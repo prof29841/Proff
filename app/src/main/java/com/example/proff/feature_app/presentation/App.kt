@@ -2,6 +2,7 @@ package com.example.proff.feature_app.presentation
 
 import android.app.Application
 import com.example.proff.di.moduleAuth
+import com.example.proff.di.moduleMeal
 import com.example.proff.di.moduleQueue
 import com.example.proff.di.moduleUser
 import com.example.proff.di.moduleViewModel
@@ -21,7 +22,7 @@ class App : Application() {
             androidLogger(Level.DEBUG)
             modules(listOf(
                 moduleViewModel, moduleQueue, moduleAuth, moduleUser,
-                moduleWorkout
+                moduleWorkout, moduleMeal
             ))
         }
     }
