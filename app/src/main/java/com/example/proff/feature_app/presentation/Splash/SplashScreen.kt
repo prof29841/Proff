@@ -22,7 +22,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.proff.R
-import com.example.proff.Route
+import com.example.proff.feature_app.presentation.Route
 import com.example.proff.feature_app.presentation.ui.theme.montserrat40018_CFCFCF
 import com.example.proff.feature_app.presentation.ui.theme.montserrat70036Bold_1D1617
 import com.example.proff.feature_app.presentation.ui.theme.montserrat70036Bold_52B09F

@@ -31,7 +31,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.proff.Route
+import com.example.proff.feature_app.presentation.Route
 import com.example.proff.feature_app.presentation.ui.theme._226F8F
 import com.example.proff.feature_app.presentation.ui.theme._9CE9EE
 import com.example.proff.feature_app.presentation.ui.theme.montserrat40014_B6B4C2

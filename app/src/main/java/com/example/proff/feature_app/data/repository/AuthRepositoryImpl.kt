@@ -118,6 +118,17 @@ class AuthRepositoryImpl : AuthRepository {
             "title" to "TITLE 3",
             "image" to "https://nnctezenkkdwflrmazcg.supabase.co/storage/v1/object/public/avatars//default_notification.png"
         ))
+
+        client.postgrest["UserWorkoutTracker"].insert(mapOf(
+            "userID" to userID,
+            "title" to "Все тело",
+            "image" to "https://nnctezenkkdwflrmazcg.supabase.co/storage/v1/object/public/toWork//user_workout_tracker_1.png"
+        ))
+        client.postgrest["UserWorkoutTracker"].insert(mapOf(
+            "userID" to userID,
+            "title" to "Вверхняя часть",
+            "image" to "https://nnctezenkkdwflrmazcg.supabase.co/storage/v1/object/public/toWork//user_workout_tracker_2.png"
+        ))
     }
 
     private fun getRandomHeartRate(): String {
