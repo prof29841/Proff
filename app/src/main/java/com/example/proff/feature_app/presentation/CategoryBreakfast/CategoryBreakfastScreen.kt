@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
@@ -22,6 +23,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import coil.compose.AsyncImage
@@ -63,7 +65,10 @@ fun CategoryBreakfastScreen(
 
         Text(
             text = "Категории",
-            style = montserrat60016Bold_1D1617
+            style = montserrat60016Bold_1D1617,
+            modifier = Modifier
+                .fillMaxWidth(),
+            textAlign = TextAlign.Left
         )
         Spacer(Modifier.height(15.dp))
         LazyRow(
@@ -88,6 +93,7 @@ fun CategoryBreakfastScreen(
                                 contentDescription = null,
                                 contentScale = ContentScale.Fit,
                                 modifier = Modifier
+                                    .size(30.dp, 15.dp)
                                     .padding(5.dp)
                             )
                         }
