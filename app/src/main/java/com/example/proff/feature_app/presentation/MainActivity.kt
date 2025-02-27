@@ -13,19 +13,25 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.proff.feature_app.presentation.ActivityTracker.ActivityTrackerScreen
+import com.example.proff.feature_app.presentation.AddAlarm.AddAlarmScreen
 import com.example.proff.feature_app.presentation.AddWorkoutSchedule.AddWorkoutScheduleScreen
 import com.example.proff.feature_app.presentation.CategoryBreakfast.CategoryBreakfastScreen
 import com.example.proff.feature_app.presentation.ChoosingGoal.ChoosingGoalScreen
+import com.example.proff.feature_app.presentation.Comparison.ComparisonScreen
 import com.example.proff.feature_app.presentation.CongratulationsPage.CongratulationsPageScreen
 import com.example.proff.feature_app.presentation.CreatingProfile.CreatingProfileScreen
 import com.example.proff.feature_app.presentation.Home.HomeScreen
 import com.example.proff.feature_app.presentation.Notification.NotificationScreen
 import com.example.proff.feature_app.presentation.OnBoard.OnBoardScreen
 import com.example.proff.feature_app.presentation.Profile.ProfileScreen
+import com.example.proff.feature_app.presentation.ProgressPhoto.ProgressPhotoScreen
 import com.example.proff.feature_app.presentation.SignIn.SignInScreen
 import com.example.proff.feature_app.presentation.SignUp.SignUpScreen
+import com.example.proff.feature_app.presentation.SleepSchedule.SleepScheduleScreen
+import com.example.proff.feature_app.presentation.SleepTracker.SleepTrackerScreen
 import com.example.proff.feature_app.presentation.Splash.SplashScreen
 import com.example.proff.feature_app.presentation.SuccessRegistration.SuccessRegistrationScreen
+import com.example.proff.feature_app.presentation.TakePhoto.TakePhotoScreen
 import com.example.proff.feature_app.presentation.WorkoutDetails1.WorkoutDetails1Screen
 import com.example.proff.feature_app.presentation.WorkoutDetails2.WorkoutDetails2Screen
 import com.example.proff.feature_app.presentation.WorkoutSchedule.WorkoutScheduleScreen
@@ -118,6 +124,24 @@ class MainActivity : ComponentActivity() {
 
 
                     composable(Route.SleepTrackerScreen.route){
+                        SleepTrackerScreen(navController)
+                    }
+                    composable(Route.SleepScheduleScreen.route){
+                        SleepScheduleScreen(navController)
+                    }
+                    composable(Route.AddAlarmScreen.route){
+                        AddAlarmScreen(navController)
+                    }
+                    composable(Route.ProgressPhotoScreen.route){
+                        ProgressPhotoScreen(navController)
+                    }
+                    composable(Route.TakePhotoScreen.route){
+                        TakePhotoScreen(navController)
+                    }
+                    composable(Route.ComparisonScreen.route){
+                        ComparisonScreen(navController)
+                    }
+                    composable(Route.CompareResultScreen.route){
 
                     }
                 }

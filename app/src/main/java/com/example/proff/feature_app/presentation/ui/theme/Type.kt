@@ -132,6 +132,13 @@ val montserrat50014_1D1617 = TextStyle(
     color = _1D1617,
     textAlign = TextAlign.Center
 )
+val montserrat50014White = TextStyle(
+    fontFamily = fontMontserratRegular,
+    fontWeight = FontWeight(500),
+    fontSize = 14.sp,
+    color = Color.White,
+    textAlign = TextAlign.Center
+)
 val montserrat50014_7B6F72 = TextStyle(
     fontFamily = fontMontserratRegular,
     fontWeight = FontWeight(500),
@@ -144,6 +151,13 @@ val montserrat50014_226F8F = TextStyle(
     fontWeight = FontWeight(500),
     fontSize = 14.sp,
     color = _226F8F,
+    textAlign = TextAlign.Center
+)
+val montserrat50010White = TextStyle(
+    fontFamily = fontMontserratRegular,
+    fontWeight = FontWeight(500),
+    fontSize = 10.sp,
+    color = Color.White,
     textAlign = TextAlign.Center
 )
 val montserrat60016Bold_1D1617 = TextStyle(
@@ -165,6 +179,13 @@ val montserrat40012_ADA4A5 = TextStyle(
     fontWeight = FontWeight(400),
     fontSize = 12.sp,
     color = _ADA4A5,
+    textAlign = TextAlign.Center
+)
+val montserrat40012_FF0000 = TextStyle(
+    fontFamily = fontMontserratRegular,
+    fontWeight = FontWeight(400),
+    fontSize = 12.sp,
+    color = _FF0000,
     textAlign = TextAlign.Center
 )
 val montserrat40012_A5A3B0 = TextStyle(
@@ -242,6 +263,13 @@ val montserrat40010_B6B4C2 = TextStyle(
     fontWeight = FontWeight(400),
     fontSize = 10.sp,
     color = _B6B4C2,
+    textAlign = TextAlign.Center
+)
+val montserrat40010_9CE9EE = TextStyle(
+    fontFamily = fontMontserratRegular,
+    fontWeight = FontWeight(400),
+    fontSize = 10.sp,
+    color = _9CE9EE,
     textAlign = TextAlign.Center
 )
 val montserrat50012_B6B4C2 = TextStyle(

@@ -4,7 +4,9 @@ import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -25,6 +27,7 @@ fun CustomBarChart(
     barChartColor: Color,
     linesColor: Color,
     height: Dp = 130.dp,
+    textColor: Color,
     modifier: Modifier = Modifier
 ) {
 
@@ -68,6 +71,7 @@ fun CustomBarChart(
                     )
                 }
             }
+            Spacer(Modifier.weight(1f))
             LazyColumn(
                 Modifier
                     .height(height),
@@ -77,20 +81,23 @@ fun CustomBarChart(
                 items(6){
                     Text(
                         text = "${it * 20}%",
-                        style = montserrat40010White
+                        style = montserrat40010White,
+                        color = textColor
                     )
                 }
             }
         }
         Row(
             verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween,
             modifier = modifier
         ) {
             repeat(weekList.size){
                 Text(
                     text = weekList[it],
-                    style = montserrat40012White
+                    style = montserrat40012White,
+                    color = textColor,
+                    modifier = Modifier
+                        .offset(x = ((20.dp * it) + 5.dp * it))
                 )
             }
         }

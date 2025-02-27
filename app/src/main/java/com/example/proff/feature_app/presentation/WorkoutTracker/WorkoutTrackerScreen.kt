@@ -73,8 +73,8 @@ fun WorkoutTrackerScreen(
                 list = state.heartRate,
                 barChartColor = _9CE9EE,
                 linesColor = Color.White,
-                height = 170.dp
-
+                height = 170.dp,
+                textColor = Color.White,
             )
         }
 
