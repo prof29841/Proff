@@ -205,6 +205,7 @@ fun ProgressPhotoScreen(
                             model = photo.photo,
                             contentDescription = null,
                             modifier = Modifier
+                                .clip(RoundedCornerShape(14.dp))
                                 .size(100.dp)
                                 .clip(RoundedCornerShape(14.dp)),
                             contentScale = ContentScale.Fit

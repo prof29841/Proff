@@ -11,6 +11,10 @@ import io.github.jan.supabase.postgrest.postgrest
 import io.github.jan.supabase.storage.storage
 import kotlin.time.Duration
 
+/**
+ * Класс для работы с галлереей пользователя
+ * @author Андреев Арсений 27.02.2025 12:23
+ */
 class PhotoRepositoryImpl : PhotoRepository {
     override suspend fun getPhotos(): List<Gallery> {
         val userID = getUserID()
