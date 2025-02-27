@@ -1,14 +1,18 @@
 package com.example.proff.feature_app.presentation.common
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -38,7 +42,7 @@ fun CustomBlueButton(
     onClick: () -> Unit
 ) {
 
-    Button(
+    Card(
         onClick = onClick,
         modifier = modifier
             .clip(RoundedCornerShape(99.dp))
@@ -52,10 +56,13 @@ fun CustomBlueButton(
             .testTag(tag),
         enabled = enabled,
         shape = RoundedCornerShape(99.dp),
-        colors = ButtonDefaults.buttonColors(Color.Transparent)
+        colors = CardDefaults.cardColors(Color.Transparent)
     ) {
         Row(
-            verticalAlignment = Alignment.CenterVertically
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = modifier
+                .padding(7.dp),
+            horizontalArrangement = Arrangement.Center
         ) {
             if (isSignInButton) {
                 Icon(

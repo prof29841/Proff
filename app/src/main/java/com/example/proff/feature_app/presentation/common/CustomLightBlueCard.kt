@@ -1,8 +1,10 @@
 package com.example.proff.feature_app.presentation.common
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
@@ -25,6 +27,7 @@ fun CustomLightBlueCard(
     btnText: String,
     enabled: Boolean = true,
     modifier: Modifier = Modifier,
+    btnModifier: Modifier = Modifier,
     onClick: () -> Unit
 ) {
 
@@ -40,7 +43,8 @@ fun CustomLightBlueCard(
         Row(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
-                .padding(20.dp)
+                .padding(20.dp),
+            horizontalArrangement = Arrangement.Center
         ) {
             Text(
                 text = text,

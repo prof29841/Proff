@@ -134,7 +134,7 @@ class AuthRepositoryImpl : AuthRepository {
     private fun getRandomHeartRate(): String {
         var rate = ""
 
-        for (i in 0..10){
+        for (i in 0..6){
             rate += Random.nextInt(1, 6)
         }
 
